@@ -2,10 +2,11 @@ const noBtn = document.getElementById("no-btn");
 const yesBtn = document.getElementById("yes-btn");
 const celebration = document.getElementById("celebration");
 
-// The "No" button runs away and shrinks a little each time
 let noBtnScale = 1;
 
 function dodge() {
+  noBtn.classList.add("roaming");
+
   const padding = 20;
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding * 2) + padding;
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding * 2) + padding;
@@ -18,9 +19,8 @@ function dodge() {
 }
 
 noBtn.addEventListener("mouseover", dodge);
-noBtn.addEventListener("touchstart", dodge); // mobile support
+noBtn.addEventListener("touchstart", dodge);
 
-// Yes = celebration + confetti
 yesBtn.addEventListener("click", () => {
   celebration.style.display = "flex";
   celebration.classList.add("show");

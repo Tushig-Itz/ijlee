@@ -61,8 +61,11 @@ button {
   background: white;
   color: #d81b60;
   border: 2px solid #ffb3cc;
-  position: fixed;
   box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
+}
+
+#no-btn.roaming {
+  position: fixed;
 }
 
 /* Floating hearts in the background */
@@ -83,7 +86,6 @@ button {
   }
 }
 
-/* Celebration overlay — hidden by default, shown via .show */
 .celebration {
   display: none;
   position: fixed;
