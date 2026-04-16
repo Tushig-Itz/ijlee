@@ -22,6 +22,7 @@ noBtn.addEventListener("touchstart", dodge); // mobile support
 
 // Yes = celebration + confetti
 yesBtn.addEventListener("click", () => {
+  celebration.style.display = "flex";
   celebration.classList.add("show");
 
   if (window.confetti) {
