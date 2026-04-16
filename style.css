@@ -61,7 +61,7 @@ button {
   background: white;
   color: #d81b60;
   border: 2px solid #ffb3cc;
-  position: absolute;
+  position: fixed;
   box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
 }
 
