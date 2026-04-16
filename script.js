@@ -22,7 +22,7 @@ noBtn.addEventListener("touchstart", dodge); // mobile support
 
 // Yes = celebration + confetti
 yesBtn.addEventListener("click", () => {
-  celebration.classList.remove("hidden");
+  celebration.classList.add("show");
 
   if (window.confetti) {
     const end = Date.now() + 2500;
