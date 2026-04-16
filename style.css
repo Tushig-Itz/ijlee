@@ -1,33 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   text-align: center;
-  background: #fff0f5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffd3e1 0%, #ffe4f1 50%, #e6d6ff 100%);
+  overflow: hidden;
+  padding: 20px;
 }
 
 .container {
-  margin-top: 100px;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-  color: #e91e63;
+  color: #d81b60;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 12px rgba(216, 27, 96, 0.15);
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 15px 25px;
-  margin: 10px;
+  padding: 16px 32px;
   border: none;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, left 0.25s ease, top 0.25s ease;
 }
 
 #yes-btn {
-  background: #ff4081;
+  background: linear-gradient(135deg, #ff4081, #ff79a8);
   color: white;
+  box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+}
+
+#yes-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(255, 64, 129, 0.5);
 }
 
 #no-btn {
-  background: #ff4081;
-  color: white;
+  background: white;
+  color: #d81b60;
+  border: 2px solid #ffb3cc;
   position: absolute;
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
+}
+
+/* Floating hearts in the background */
+.heart {
+  position: fixed;
+  bottom: -40px;
+  font-size: 24px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Celebration overlay */
+.celebration {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 228, 241, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeIn 0.4s ease;
+}
+
+.celebration.hidden {
+  display: none;
+}
+
+.celebration-content {
+  text-align: center;
+  padding: 2rem;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.celebration-content h2 {
+  color: #d81b60;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin: 0.5rem 0;
+}
+
+.celebration-content p {
+  color: #9c2557;
+  font-size: 1.2rem;
+}
+
+.big-emoji {
+  font-size: 5rem;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }
